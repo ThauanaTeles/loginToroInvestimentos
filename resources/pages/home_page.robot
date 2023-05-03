@@ -8,12 +8,14 @@ Resource         ../main.robot
     
 
 *** Keywords *** 
-Que acesso o site
+Dado que acesso o site
     Open Browser    ${geral.URL}  ${geral.BROWSER} 
 
 
 ####E
-Acesso a página Fazer login
+E acesso a página Fazer login
     Click Element                        ${home.LINK_TO_DO_LOGIN} 
     Switch Window                        new
 
+Fechar navegador
+    Close Browser
