@@ -2,6 +2,6 @@
 Resource         ../main.robot 
 
 *** Keywords ***    
-Acessar o site 
-    Que acesso o site
-    Acesso a página Fazer login
+Acessar o site
+    Dado que acesso o site
+    E acesso a página Fazer login
