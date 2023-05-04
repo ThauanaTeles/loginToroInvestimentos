@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.9.6 on darwin)" generated="20230504 13:20:29.284" rpa="false" schemaversion="3">
+<suite id="s1" name="Invalid Login" source="/Users/thauana_teles/robot/loginToroInvestimentos/suites/login/invalid_login.robot">
+<test id="s1-t1" name="Quando preencho os dados incorretamente" line="10">
+<kw name="Acessar o site" library="setup_teardown" type="SETUP">
+<kw name="Dado que acesso o site" library="home_page">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${geral.URL}</arg>
+<arg>${geral.BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230504 13:20:29.404" level="INFO">Opening browser 'chrome' to base url 'https://www.toroinvestimentos.com.br/'.</msg>
+<msg timestamp="20230504 13:20:29.404" level="INFO">Executing: /Users/thauana_teles/Library/Python/3.9/lib/python/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --output json</msg>
+<status status="PASS" starttime="20230504 13:20:29.404" endtime="20230504 13:20:32.832"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:29.403" endtime="20230504 13:20:32.832"/>
+</kw>
+<kw name="E acesso a página Fazer login" library="home_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${home.LINK_TO_DO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230504 13:20:32.833" level="INFO">Clicking element '//*[@id="__next"]/div[2]/div/div[2]/a[1]'.</msg>
+<status status="PASS" starttime="20230504 13:20:32.833" endtime="20230504 13:20:32.871"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20230504 13:20:32.871" endtime="20230504 13:20:32.882"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:32.832" endtime="20230504 13:20:32.882"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:29.403" endtime="20230504 13:20:32.882"/>
+</kw>
+<kw name="Login inválido">
+<arg>thauanateles@hotmail.com</arg>
+<arg>dev123456</arg>
+<arg>Dados incorretos. Digite novamente.</arg>
+<kw name="Quando preencho os dados de login incorretamente" library="resource_login">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${login.TITLE_ACCESS_ACCOUNT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:20:32.883" endtime="20230504 13:20:35.579"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login.INPUT_EMAIL}</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:20:35.579" level="INFO">Typing text 'thauanateles@hotmail.com' into text field '//input[@id="username"]'.</msg>
+<status status="PASS" starttime="20230504 13:20:35.579" endtime="20230504 13:20:35.675"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${login.INPUT_PASSWORD}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:20:35.676" level="INFO">Typing password into text field '//*[@id="password"]'.</msg>
+<msg timestamp="20230504 13:20:35.694" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230504 13:20:35.717" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230504 13:20:35.675" endtime="20230504 13:20:35.717"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${login.BUTTON_TO_ENTER}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230504 13:20:35.718" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
+<status status="PASS" starttime="20230504 13:20:35.718" endtime="20230504 13:20:35.749"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:32.883" endtime="20230504 13:20:35.749"/>
+</kw>
+<kw name="Então o login não é realizado" library="resource_login">
+<arg>${ERROR_MESSAGE}</arg>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>${ERROR_MESSAGE}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:20:35.750" endtime="20230504 13:20:37.233"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:35.749" endtime="20230504 13:20:37.233"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:32.883" endtime="20230504 13:20:37.233"/>
+</kw>
+<kw name="Fechar navegador" library="home_page" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230504 13:20:37.234" endtime="20230504 13:20:37.351"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:37.234" endtime="20230504 13:20:37.352"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:29.403" endtime="20230504 13:20:37.352"/>
+</test>
+<test id="s1-t2" name="Quando preencho o email no formato incorreto e a senha" line="11">
+<kw name="Acessar o site" library="setup_teardown" type="SETUP">
+<kw name="Dado que acesso o site" library="home_page">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${geral.URL}</arg>
+<arg>${geral.BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230504 13:20:37.353" level="INFO">Opening browser 'chrome' to base url 'https://www.toroinvestimentos.com.br/'.</msg>
+<msg timestamp="20230504 13:20:37.354" level="INFO">Executing: /Users/thauana_teles/Library/Python/3.9/lib/python/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --output json</msg>
+<status status="PASS" starttime="20230504 13:20:37.353" endtime="20230504 13:20:41.595"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:37.352" endtime="20230504 13:20:41.595"/>
+</kw>
+<kw name="E acesso a página Fazer login" library="home_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${home.LINK_TO_DO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230504 13:20:41.596" level="INFO">Clicking element '//*[@id="__next"]/div[2]/div/div[2]/a[1]'.</msg>
+<status status="PASS" starttime="20230504 13:20:41.595" endtime="20230504 13:20:41.686"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20230504 13:20:41.686" endtime="20230504 13:20:41.694"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:41.595" endtime="20230504 13:20:41.694"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:37.352" endtime="20230504 13:20:41.694"/>
+</kw>
+<kw name="Login inválido">
+<arg>thauanateles.hotmail.com</arg>
+<arg>dev123456</arg>
+<arg>Dados incorretos. Digite novamente.</arg>
+<kw name="Quando preencho os dados de login incorretamente" library="resource_login">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${login.TITLE_ACCESS_ACCOUNT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:20:41.695" endtime="20230504 13:20:43.475"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login.INPUT_EMAIL}</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:20:43.475" level="INFO">Typing text 'thauanateles.hotmail.com' into text field '//input[@id="username"]'.</msg>
+<status status="PASS" starttime="20230504 13:20:43.475" endtime="20230504 13:20:43.563"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${login.INPUT_PASSWORD}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:20:43.564" level="INFO">Typing password into text field '//*[@id="password"]'.</msg>
+<msg timestamp="20230504 13:20:43.583" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230504 13:20:43.604" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230504 13:20:43.563" endtime="20230504 13:20:43.604"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${login.BUTTON_TO_ENTER}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230504 13:20:43.605" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
+<status status="PASS" starttime="20230504 13:20:43.604" endtime="20230504 13:20:43.635"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:41.694" endtime="20230504 13:20:43.635"/>
+</kw>
+<kw name="Então o login não é realizado" library="resource_login">
+<arg>${ERROR_MESSAGE}</arg>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>${ERROR_MESSAGE}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:20:43.635" endtime="20230504 13:20:44.053"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:43.635" endtime="20230504 13:20:44.053"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:41.694" endtime="20230504 13:20:44.053"/>
+</kw>
+<kw name="Fechar navegador" library="home_page" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230504 13:20:44.054" endtime="20230504 13:20:44.157"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:44.054" endtime="20230504 13:20:44.158"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:37.352" endtime="20230504 13:20:44.158"/>
+</test>
+<test id="s1-t3" name="Quando preencho os dados de login de um usuário não cadastrado" line="12">
+<kw name="Acessar o site" library="setup_teardown" type="SETUP">
+<kw name="Dado que acesso o site" library="home_page">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${geral.URL}</arg>
+<arg>${geral.BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230504 13:20:44.159" level="INFO">Opening browser 'chrome' to base url 'https://www.toroinvestimentos.com.br/'.</msg>
+<msg timestamp="20230504 13:20:44.159" level="INFO">Executing: /Users/thauana_teles/Library/Python/3.9/lib/python/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --output json</msg>
+<status status="PASS" starttime="20230504 13:20:44.158" endtime="20230504 13:20:46.978"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:44.158" endtime="20230504 13:20:46.978"/>
+</kw>
+<kw name="E acesso a página Fazer login" library="home_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${home.LINK_TO_DO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230504 13:20:46.979" level="INFO">Clicking element '//*[@id="__next"]/div[2]/div/div[2]/a[1]'.</msg>
+<status status="PASS" starttime="20230504 13:20:46.979" endtime="20230504 13:20:47.010"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20230504 13:20:47.011" endtime="20230504 13:20:47.019"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:46.978" endtime="20230504 13:20:47.019"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:44.158" endtime="20230504 13:20:47.019"/>
+</kw>
+<kw name="Login inválido">
+<arg>teste@hotmail.com</arg>
+<arg>123456</arg>
+<arg>Sua senha foi bloqueada. Crie uma nova para continuar</arg>
+<kw name="Quando preencho os dados de login incorretamente" library="resource_login">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${login.TITLE_ACCESS_ACCOUNT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:20:47.020" endtime="20230504 13:20:49.649"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login.INPUT_EMAIL}</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:20:49.650" level="INFO">Typing text 'teste@hotmail.com' into text field '//input[@id="username"]'.</msg>
+<status status="PASS" starttime="20230504 13:20:49.649" endtime="20230504 13:20:49.762"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${login.INPUT_PASSWORD}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:20:49.763" level="INFO">Typing password into text field '//*[@id="password"]'.</msg>
+<msg timestamp="20230504 13:20:49.782" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230504 13:20:49.803" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230504 13:20:49.762" endtime="20230504 13:20:49.803"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${login.BUTTON_TO_ENTER}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230504 13:20:49.804" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
+<status status="PASS" starttime="20230504 13:20:49.804" endtime="20230504 13:20:49.839"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:47.020" endtime="20230504 13:20:49.839"/>
+</kw>
+<kw name="Então o login não é realizado" library="resource_login">
+<arg>${ERROR_MESSAGE}</arg>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>${ERROR_MESSAGE}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:20:49.839" endtime="20230504 13:20:51.123"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:49.839" endtime="20230504 13:20:51.123"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:47.019" endtime="20230504 13:20:51.123"/>
+</kw>
+<kw name="Fechar navegador" library="home_page" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230504 13:20:51.123" endtime="20230504 13:20:51.238"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:51.123" endtime="20230504 13:20:51.238"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:44.158" endtime="20230504 13:20:51.239"/>
+</test>
+<test id="s1-t4" name="Quando preencho apenas o campo do e-mail" line="13">
+<kw name="Acessar o site" library="setup_teardown" type="SETUP">
+<kw name="Dado que acesso o site" library="home_page">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${geral.URL}</arg>
+<arg>${geral.BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230504 13:20:51.240" level="INFO">Opening browser 'chrome' to base url 'https://www.toroinvestimentos.com.br/'.</msg>
+<msg timestamp="20230504 13:20:51.240" level="INFO">Executing: /Users/thauana_teles/Library/Python/3.9/lib/python/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --output json</msg>
+<status status="PASS" starttime="20230504 13:20:51.239" endtime="20230504 13:21:00.064"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:51.239" endtime="20230504 13:21:00.065"/>
+</kw>
+<kw name="E acesso a página Fazer login" library="home_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${home.LINK_TO_DO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:00.066" level="INFO">Clicking element '//*[@id="__next"]/div[2]/div/div[2]/a[1]'.</msg>
+<status status="PASS" starttime="20230504 13:21:00.065" endtime="20230504 13:21:00.126"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20230504 13:21:00.126" endtime="20230504 13:21:00.137"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:00.065" endtime="20230504 13:21:00.137"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:51.239" endtime="20230504 13:21:00.137"/>
+</kw>
+<kw name="Login inválido">
+<arg>thauanateles@hotmail.com</arg>
+<arg>${EMPTY}</arg>
+<arg>Senha inválida</arg>
+<kw name="Quando preencho os dados de login incorretamente" library="resource_login">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${login.TITLE_ACCESS_ACCOUNT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:21:00.138" endtime="20230504 13:21:01.968"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login.INPUT_EMAIL}</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:01.969" level="INFO">Typing text 'thauanateles@hotmail.com' into text field '//input[@id="username"]'.</msg>
+<status status="PASS" starttime="20230504 13:21:01.968" endtime="20230504 13:21:02.071"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${login.INPUT_PASSWORD}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:02.072" level="INFO">Typing password into text field '//*[@id="password"]'.</msg>
+<msg timestamp="20230504 13:21:02.092" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230504 13:21:02.120" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230504 13:21:02.072" endtime="20230504 13:21:02.120"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${login.BUTTON_TO_ENTER}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:02.121" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
+<status status="PASS" starttime="20230504 13:21:02.120" endtime="20230504 13:21:02.167"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:00.138" endtime="20230504 13:21:02.167"/>
+</kw>
+<kw name="Então o login não é realizado" library="resource_login">
+<arg>${ERROR_MESSAGE}</arg>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>${ERROR_MESSAGE}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:21:02.167" endtime="20230504 13:21:02.173"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:02.167" endtime="20230504 13:21:02.174"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:00.137" endtime="20230504 13:21:02.174"/>
+</kw>
+<kw name="Fechar navegador" library="home_page" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230504 13:21:02.174" endtime="20230504 13:21:02.284"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:02.174" endtime="20230504 13:21:02.284"/>
+</kw>
+<status status="PASS" starttime="20230504 13:20:51.239" endtime="20230504 13:21:02.284"/>
+</test>
+<test id="s1-t5" name="Quando preencho apenas o campo CPF" line="14">
+<kw name="Acessar o site" library="setup_teardown" type="SETUP">
+<kw name="Dado que acesso o site" library="home_page">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${geral.URL}</arg>
+<arg>${geral.BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230504 13:21:02.285" level="INFO">Opening browser 'chrome' to base url 'https://www.toroinvestimentos.com.br/'.</msg>
+<msg timestamp="20230504 13:21:02.286" level="INFO">Executing: /Users/thauana_teles/Library/Python/3.9/lib/python/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --output json</msg>
+<status status="PASS" starttime="20230504 13:21:02.285" endtime="20230504 13:21:04.439"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:02.285" endtime="20230504 13:21:04.439"/>
+</kw>
+<kw name="E acesso a página Fazer login" library="home_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${home.LINK_TO_DO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:04.441" level="INFO">Clicking element '//*[@id="__next"]/div[2]/div/div[2]/a[1]'.</msg>
+<status status="PASS" starttime="20230504 13:21:04.440" endtime="20230504 13:21:04.481"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20230504 13:21:04.481" endtime="20230504 13:21:04.497"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:04.439" endtime="20230504 13:21:04.497"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:02.285" endtime="20230504 13:21:04.497"/>
+</kw>
+<kw name="Login inválido">
+<arg>12106377665</arg>
+<arg>${EMPTY}</arg>
+<arg>Senha inválida</arg>
+<kw name="Quando preencho os dados de login incorretamente" library="resource_login">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${login.TITLE_ACCESS_ACCOUNT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:21:04.498" endtime="20230504 13:21:07.759"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login.INPUT_EMAIL}</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:07.760" level="INFO">Typing text '12106377665' into text field '//input[@id="username"]'.</msg>
+<status status="PASS" starttime="20230504 13:21:07.759" endtime="20230504 13:21:07.839"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${login.INPUT_PASSWORD}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:07.839" level="INFO">Typing password into text field '//*[@id="password"]'.</msg>
+<msg timestamp="20230504 13:21:07.859" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230504 13:21:07.876" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230504 13:21:07.839" endtime="20230504 13:21:07.876"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${login.BUTTON_TO_ENTER}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:07.877" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
+<status status="PASS" starttime="20230504 13:21:07.876" endtime="20230504 13:21:07.907"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:04.498" endtime="20230504 13:21:07.907"/>
+</kw>
+<kw name="Então o login não é realizado" library="resource_login">
+<arg>${ERROR_MESSAGE}</arg>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>${ERROR_MESSAGE}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:21:07.907" endtime="20230504 13:21:07.913"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:07.907" endtime="20230504 13:21:07.913"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:04.497" endtime="20230504 13:21:07.913"/>
+</kw>
+<kw name="Fechar navegador" library="home_page" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230504 13:21:07.913" endtime="20230504 13:21:08.031"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:07.913" endtime="20230504 13:21:08.031"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:02.284" endtime="20230504 13:21:08.031"/>
+</test>
+<test id="s1-t6" name="Quando preencho apenas o campo de senha" line="15">
+<kw name="Acessar o site" library="setup_teardown" type="SETUP">
+<kw name="Dado que acesso o site" library="home_page">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${geral.URL}</arg>
+<arg>${geral.BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230504 13:21:08.033" level="INFO">Opening browser 'chrome' to base url 'https://www.toroinvestimentos.com.br/'.</msg>
+<msg timestamp="20230504 13:21:08.033" level="INFO">Executing: /Users/thauana_teles/Library/Python/3.9/lib/python/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --output json</msg>
+<status status="PASS" starttime="20230504 13:21:08.032" endtime="20230504 13:21:14.561"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:08.032" endtime="20230504 13:21:14.561"/>
+</kw>
+<kw name="E acesso a página Fazer login" library="home_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${home.LINK_TO_DO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:14.563" level="INFO">Clicking element '//*[@id="__next"]/div[2]/div/div[2]/a[1]'.</msg>
+<status status="PASS" starttime="20230504 13:21:14.562" endtime="20230504 13:21:14.629"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20230504 13:21:14.629" endtime="20230504 13:21:14.637"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:14.561" endtime="20230504 13:21:14.637"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:08.032" endtime="20230504 13:21:14.637"/>
+</kw>
+<kw name="Login inválido">
+<arg>${EMPTY}</arg>
+<arg>dev123456</arg>
+<arg>E-mail inválido</arg>
+<kw name="Quando preencho os dados de login incorretamente" library="resource_login">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${login.TITLE_ACCESS_ACCOUNT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:21:14.639" endtime="20230504 13:21:16.888"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login.INPUT_EMAIL}</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:16.889" level="INFO">Typing text '' into text field '//input[@id="username"]'.</msg>
+<status status="PASS" starttime="20230504 13:21:16.888" endtime="20230504 13:21:16.925"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${login.INPUT_PASSWORD}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:16.925" level="INFO">Typing password into text field '//*[@id="password"]'.</msg>
+<msg timestamp="20230504 13:21:16.949" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230504 13:21:17.039" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230504 13:21:16.925" endtime="20230504 13:21:17.039"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${login.BUTTON_TO_ENTER}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:17.040" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
+<status status="PASS" starttime="20230504 13:21:17.039" endtime="20230504 13:21:17.073"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:14.638" endtime="20230504 13:21:17.073"/>
+</kw>
+<kw name="Então o login não é realizado" library="resource_login">
+<arg>${ERROR_MESSAGE}</arg>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>${ERROR_MESSAGE}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:21:17.073" endtime="20230504 13:21:17.518"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:17.073" endtime="20230504 13:21:17.518"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:14.638" endtime="20230504 13:21:17.518"/>
+</kw>
+<kw name="Fechar navegador" library="home_page" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230504 13:21:17.519" endtime="20230504 13:21:17.631"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:17.519" endtime="20230504 13:21:17.631"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:08.031" endtime="20230504 13:21:17.631"/>
+</test>
+<test id="s1-t7" name="Quando não preencho nenhum campo de login" line="16">
+<kw name="Acessar o site" library="setup_teardown" type="SETUP">
+<kw name="Dado que acesso o site" library="home_page">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${geral.URL}</arg>
+<arg>${geral.BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230504 13:21:17.633" level="INFO">Opening browser 'chrome' to base url 'https://www.toroinvestimentos.com.br/'.</msg>
+<msg timestamp="20230504 13:21:17.633" level="INFO">Executing: /Users/thauana_teles/Library/Python/3.9/lib/python/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --output json</msg>
+<status status="PASS" starttime="20230504 13:21:17.632" endtime="20230504 13:21:20.788"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:17.632" endtime="20230504 13:21:20.788"/>
+</kw>
+<kw name="E acesso a página Fazer login" library="home_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${home.LINK_TO_DO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:20.790" level="INFO">Clicking element '//*[@id="__next"]/div[2]/div/div[2]/a[1]'.</msg>
+<status status="PASS" starttime="20230504 13:21:20.789" endtime="20230504 13:21:20.848"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20230504 13:21:20.848" endtime="20230504 13:21:20.857"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:20.788" endtime="20230504 13:21:20.857"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:17.632" endtime="20230504 13:21:20.857"/>
+</kw>
+<kw name="Login inválido">
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<arg>E-mail inválido</arg>
+<kw name="Quando preencho os dados de login incorretamente" library="resource_login">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${login.TITLE_ACCESS_ACCOUNT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:21:20.858" endtime="20230504 13:21:24.653"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login.INPUT_EMAIL}</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:24.654" level="INFO">Typing text '' into text field '//input[@id="username"]'.</msg>
+<status status="PASS" starttime="20230504 13:21:24.653" endtime="20230504 13:21:24.685"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${login.INPUT_PASSWORD}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:24.685" level="INFO">Typing password into text field '//*[@id="password"]'.</msg>
+<msg timestamp="20230504 13:21:24.702" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230504 13:21:24.716" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230504 13:21:24.685" endtime="20230504 13:21:24.717"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${login.BUTTON_TO_ENTER}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230504 13:21:24.717" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
+<status status="PASS" starttime="20230504 13:21:24.717" endtime="20230504 13:21:24.749"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:20.858" endtime="20230504 13:21:24.749"/>
+</kw>
+<kw name="Então o login não é realizado" library="resource_login">
+<arg>${ERROR_MESSAGE}</arg>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>${ERROR_MESSAGE}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230504 13:21:24.750" endtime="20230504 13:21:24.964"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:24.749" endtime="20230504 13:21:24.964"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:20.857" endtime="20230504 13:21:24.964"/>
+</kw>
+<kw name="Fechar navegador" library="home_page" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230504 13:21:24.964" endtime="20230504 13:21:25.084"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:24.964" endtime="20230504 13:21:25.084"/>
+</kw>
+<status status="PASS" starttime="20230504 13:21:17.632" endtime="20230504 13:21:25.084"/>
+</test>
+<status status="PASS" starttime="20230504 13:20:29.285" endtime="20230504 13:21:25.084"/>
+</suite>
+<statistics>
+<total>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="7" fail="0" skip="0" id="s1" name="Invalid Login">Invalid Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
