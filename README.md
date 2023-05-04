@@ -12,9 +12,10 @@
 
 ### Passos para instalação do robot framework e do appium library:
 
-`pip install robotframework
+`pip install robotframework`
 
-pip install --upgrade robotframework-appiumlibrary`
+`pip install --upgrade robotframework-appiumlibrary
+`
 
 ## Demonstração em execução
 ### Pré-condições
@@ -35,6 +36,7 @@ Já o comando para executar os casos de testes e direcionar a criação dos logs
 
 `robot -d ./log palavra-chave_driven.robot
 `
+
 Onde estou especificando que a pasta será criada na mesma raiz que estiver o arquivo executável.
 
 Observação
